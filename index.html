@@ -3,49 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Tristan Cortes | Mechanical Engineer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Your Name</h1>
-    <p>Web Developer · Designer · Creator</p>
+<body class="bg-white text-gray-800 p-6">
+  <!-- Header -->
+  <header class="text-center mb-10">
+    <h1 class="text-4xl font-bold mb-2">Tristan Cortes</h1>
+    <h2 class="text-xl text-gray-600">Mechanical Engineer | CAD & Prototyping Specialist</h2>
+    <p class="text-sm mt-2 text-gray-500">Seattle, WA | (123) 456-7890 | your.email@example.com</p>
+    <p class="text-sm text-gray-500">
+      <a href="https://linkedin.com/in/yourname" target="_blank" class="text-blue-600 hover:underline">
+        linkedin.com/in/yourname
+      </a>
+    </p>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm a developer who builds clean and modern websites. I specialize in front-end development and design.</p>
+  <!-- About Section -->
+  <section class="max-w-3xl mx-auto mb-12">
+    <h3 class="text-2xl font-semibold mb-4">About Me</h3>
+    <p class="text-gray-700 mb-4">
+      I’m a Mechanical Engineering graduate from the University of Washington with hands-on experience in design, prototyping, and technical communication. I've contributed to projects in clean energy, education, and construction—applying skills in 3D modeling (SolidWorks, Onshape), FEA (ANSYS), Python, MATLAB, and fabrication technologies like 3D printing, CNC, and Arduino.
+    </p>
+    <p class="text-gray-700">
+      Passionate about building accessible, user-centered engineering solutions, I'm seeking opportunities to grow as a designer, problem-solver, and teammate. I welcome connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities.
+    </p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>My Portfolio Site</h3>
-      <p>A personal website built with HTML and CSS.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project">
-      <h3>Weather App</h3>
-      <p>A simple JavaScript app that shows weather data from an API.</p>
-      <a href="#">View Project</a>
-    </div>
+  <!-- Skills Section -->
+  <section class="max-w-3xl mx-auto mb-12">
+    <h3 class="text-2xl font-semibold mb-4">Skills</h3>
+    <ul class="grid grid-cols-2 gap-4 text-gray-700">
+      <li>SolidWorks, Onshape, SketchUp</li>
+      <li>Python, MATLAB</li>
+      <li>FEA (ANSYS), GD&T</li>
+      <li>3D Printing, CNC Milling</li>
+      <li>Arduino Prototyping</li>
+      <li>Microsoft Office Suite</li>
+    </ul>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: yourname@example.com</p>
-    <p>LinkedIn: <a href="#">linkedin.com/in/yourname</a></p>
+  <!-- Projects Preview (Optional Placeholder) -->
+  <section class="max-w-3xl mx-auto mb-12">
+    <h3 class="text-2xl font-semibold mb-4">Projects</h3>
+    <p class="text-gray-600 italic mb-4">(Project portfolio coming soon...)</p>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Your Name</p>
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 mt-10">
+    © <script>document.write(new Date().getFullYear())</script> Tristan Cortes. All rights reserved.
   </footer>
 </body>
 </html>
-
