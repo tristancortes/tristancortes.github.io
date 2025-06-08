@@ -30,10 +30,10 @@
   </div>
 
   <!-- Nav links aligned top right -->
-    <nav class="flex space-x-6 mt-1" style="color: var(--headline);">
-      <a href="index.html" class="hover:underline text-lg">About Me</a>
-      <a href="experience.html" class="hover:underline text-lg">Experience</a>
-      <a href="projects.html" class="hover:underline text-lg">Projects</a>
+  <nav class="flex space-x-6 mt-1" style="color: var(--headline);">
+    <a href="index.html" class="hover:underline text-lg">About Me</a>
+    <a href="experience.html" class="hover:underline text-lg">Experience</a>
+    <a href="projects.html" class="hover:underline text-lg">Projects</a>
   </nav>
 </div>
 
@@ -43,39 +43,82 @@
   <div>
     <!-- About Section -->
     <section class="mb-12">
-      <h3 class="text-2xl font-semibold mb-4 text-[var(--headline)]">A brief about me.</h3>
-      <p class="mb-4">
-        Passionate about building more sustainable future, Tristan specializes in mechanical Design and Structural Engineering. He bring precision, focus, and initiative to every challenge,  and belives in working collaboratively to build the most effiecitnt solutions .He welcome connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities. 
-      </p>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold mb-4 text-[var(--headline)]">Skills</h3>
-      <ul class="grid grid-cols-2 gap-4">
-        <li>SolidWorks, Onshape, SketchUp</li>
-        <li>Python, MATLAB</li>
-        <li>FEA (ANSYS), GD&T</li>
-        <li>3D Printing, CNC Milling</li>
-        <li>Arduino Prototyping</li>
-        <li>Microsoft Office Suite</li>
-      </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold mb-4 text-[var(--headline)]">Projects</h3>
-      <p class="italic text-[var(--paragraph)] mb-4">(Project portfolio coming soon...)</p>
+      <h3 class="text-6xl font-bold mb-6 text-[var(--headline)]">A brief<br>about me.</h3>
+      <div class="flex items-start gap-4">
+  
+        <!-- Paragraph Text -->
+        <p class="text-[var(--tertiary)]">
+          Passionate about building a more sustainable future, Tristan specializes in mechanical Design and Structural Engineering. He brings precision, focus, and initiative to every challenge, and believes in working collaboratively to build the most efficient solutions. He welcomes connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities. 
+        </p>
+      </div>
     </section>
   </div>
 
   <!-- Right Column (empty for now) -->
   <div>
-    <!-- You can add content here later, like a photo, diagram, resume, etc. -->
+    <div class="flex justify-center items-center">
+    <img src="profile.jpg" alt="Tristan Cortes" class="w-96 h-96 object-cover object-center rounded" />
+    </div>
+
   </div>
 </div>
+
+
+<!-- Skills Section spanning both columns -->
+<section class="max-w-6xl mx-auto mb-12">
+ <h4 class="text-xl font-semibold mb-4 text-[var(--headline)]">CAD</h4>
+<ul class="grid grid-cols-3 gap-4 text-left text-sm text-[var(--tertiary)]">
+  <li class="border border-[var(--tertiary)] rounded p-2">SolidWorks</li>
+  <li class="border border-[var(--tertiary)] rounded p-2">AutoCAD</li>
+  <li class="border border-[var(--tertiary)] rounded p-2">Python</li>
+  <li class="border border-[var(--tertiary)] rounded p-2">MATLAB</li>
+  <li class="border border-[var(--tertiary)] rounded p-2">ANSYS</li>
+</ul>
+
+
+  <h4 class="text-xl font-semibold mt-8 mb-4 text-[var(--headline)]">Prototyping and Fabrication</h4>
+  <ul class="grid grid-cols-3 gap-4">
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">3D Modeling & Drafting</li>
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">Stress Analysis</li>
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">Stress Simulations (FEA)</li>
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">GD&T</li>
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">3D Printing</li>
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">CNC Milling</li>
+    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">Material Selection</li>
+  </ul>
+</section>
+
+
+<!-- Projects Section -->
+<section class="mb-12 bg-[var(--secondary)] p-8 max-w-6xl mx-auto rounded-lg">
+  <h3 class="text-3xl font-bold text-[var(--headline)] text-center mb-8">Projects</h3>
+
+  <div class="grid grid-cols-2 gap-6">
+    <div class="bg-white rounded shadow h-48"></div>
+    <div class="bg-white rounded shadow h-48"></div>
+    <div class="bg-white rounded shadow h-48"></div>
+    <div class="bg-white rounded shadow h-48"></div>
+  </div>
+</section>
+
+
+<!-- Two-column layout -->
+<div class="grid grid-cols-2 gap-8 mt-10 max-w-6xl mx-auto">
+  <!-- Left Column -->
+  <div>
+    <!-- About Section -->
+    <section class="mb-12">
+      <h3 class="text-2xl font-semibold mb-4 text-[var(--headline)]">Tristan's work<br>experiences. </h3>
+      <p class="mb-4">
+        Hands on experience contributing to clean energy, education, and construction projects—applying skills in mechanical design, and fabrication.  .      </p>
+    </section>
+  </div>
+
+ 
 
 <!-- Footer -->
 <footer class="text-center text-sm text-[var(--paragraph)] mt-10">
   © <script>document.write(new Date().getFullYear())</script> Tristan Cortes. All rights reserved.
 </footer>
+</body>
+</html>
