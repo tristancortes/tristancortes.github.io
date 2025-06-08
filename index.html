@@ -7,20 +7,29 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-white text-gray-800 p-6">
-  <!-- Header -->
-  <header class="text-center mb-10">
-    <h1 class="text-4xl font-bold mb-2">Tristan Cortes</h1>
-    <h2 class="text-xl text-gray-600">Mechanical Engineer | CAD & Prototyping Specialist</h2>
-    <p class="text-sm mt-2 text-gray-500">Seattle, WA | (123) 456-7890 | your.email@example.com</p>
-    <p class="text-sm text-gray-500">
-      <a href="https://linkedin.com/in/yourname" target="_blank" class="text-blue-600 hover:underline">
-        linkedin.com/in/yourname
-      </a>
-    </p>
-  </header>
+
+<!-- Top Blue Section with Nav -->
+<div class="bg-blue-600 text-white flex justify-between items-start px-8 py-6" style="height: 25vh;">
+  <!-- Left-aligned personal info -->
+  <div class="flex flex-col">
+    <h1 class="text-4xl font-bold mb-1">Tristan Cortes</h1>
+    <h2 class="text-xl mb-1">Mechanical Engineer | CAD & Prototyping Specialist</h2>
+    <p class="text-sm">Seattle, WA | (123) 456-7890 | your.email@example.com</p>
+    <a href="https://linkedin.com/in/yourname" target="_blank" class="text-blue-200 hover:underline text-sm">
+      linkedin.com/in/yourname
+    </a>
+  </div>
+
+  <!-- Right-aligned nav links -->
+  <nav class="flex flex-col items-end space-y-2 mt-2">
+    <a href="index.html" class="text-white hover:underline text-lg">About Me</a>
+    <a href="experience.html" class="text-white hover:underline text-lg">Experience</a>
+    <a href="projects.html" class="text-white hover:underline text-lg">Projects</a>
+  </nav>
+</div>
 
   <!-- About Section -->
-  <section class="max-w-3xl mx-auto mb-12">
+  <section class="max-w-3xl mx-auto mb-12 mt-10">
     <h3 class="text-2xl font-semibold mb-4">About Me</h3>
     <p class="text-gray-700 mb-4">
       I’m a Mechanical Engineering graduate from the University of Washington with hands-on experience in design, prototyping, and technical communication. I've contributed to projects in clean energy, education, and construction—applying skills in 3D modeling (SolidWorks, Onshape), FEA (ANSYS), Python, MATLAB, and fabrication technologies like 3D printing, CNC, and Arduino.
