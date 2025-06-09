@@ -4,10 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tristan Cortes | Mechanical Engineer</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --background: #fffffe;
+      --backgroundHue: #d8eefe;
       --headline: #094067;
       --paragraph: #5f6c7b;
       --button: #3da9fc;
@@ -18,19 +25,27 @@
       --secondary: #90b4ce;
       --tertiary: #ef4565;
     }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
   </style>
 </head>
-<body class="bg-[var(--background)] text-[var(--paragraph)] p-6">
+<body class="bg-[var(--background)]">
 
 <!-- Top Section with Nav -->
-<div class="relative bg-[var(--illustration-stroke)] text-[var(--button-text)] px-8 py-6 flex justify-between items-start">
+<div class="relative bg-[--background] text-[var(--headline)] px-8 py-6 flex justify-between items-start">
   <!-- Name -->
   <div>
-    <h1 class="text-4xl font-bold" style="color: var(--headline);">Tristan Cortes</h1>
+    <h2 class="text-3xl font-semibold" style="color: var(--headline);">Tristan Cortes</h2>
   </div>
 
   <!-- Nav links aligned top right -->
-  <nav class="flex space-x-6 mt-1" style="color: var(--headline);">
+  <nav class="flex space-x-6 mt-1">
     <a href="index.html" class="hover:underline text-lg">About Me</a>
     <a href="experience.html" class="hover:underline text-lg">Experience</a>
     <a href="projects.html" class="hover:underline text-lg">Projects</a>
@@ -43,12 +58,12 @@
   <div>
     <!-- About Section -->
     <section class="mb-12">
-      <h3 class="text-6xl font-bold mb-6 text-[var(--headline)]">A brief<br>about me.</h3>
+      <h1 class="text-6xl font-bold mb-6 text-[var(--headline)]">Welcome to<br>my page.</h1>
       <div class="flex items-start gap-4">
   
         <!-- Paragraph Text -->
-        <p class="text-[var(--tertiary)]">
-          Passionate about building a more sustainable future, Tristan specializes in mechanical Design and Structural Engineering. He brings precision, focus, and initiative to every challenge, and believes in working collaboratively to build the most efficient solutions. He welcomes connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities. 
+        <p class="text-[var(--paragraph)]">
+          I'm Tristan, a Mechanical Engineer who wants to build a more positive and sustainable future. I specialize in Mechanical Design, and I have a passion for 3D modeling, Stress Analyis, and Protoyping & Fabrication. I bring precision and determination to every challenge, and I believe in working collaboratively to build the most efficient solutions. I welcome connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities.
         </p>
       </div>
     </section>
@@ -57,7 +72,7 @@
   <!-- Right Column (empty for now) -->
   <div>
     <div class="flex justify-center items-center">
-    <img src="profile.jpg" alt="Tristan Cortes" class="w-96 h-96 object-cover object-center rounded" />
+<img src="profile.jpg" alt="Tristan Cortes" class="w-96 h-96 object-contain object-top rounded" />
     </div>
 
   </div>
@@ -66,41 +81,118 @@
 
 <!-- Skills Section spanning both columns -->
 <section class="max-w-6xl mx-auto mb-12">
- <h4 class="text-xl font-semibold mb-4 text-[var(--headline)]">CAD</h4>
-<ul class="grid grid-cols-3 gap-4 text-left text-sm text-[var(--tertiary)]">
-  <li class="border border-[var(--tertiary)] rounded p-2">SolidWorks</li>
-  <li class="border border-[var(--tertiary)] rounded p-2">AutoCAD</li>
-  <li class="border border-[var(--tertiary)] rounded p-2">Python</li>
-  <li class="border border-[var(--tertiary)] rounded p-2">MATLAB</li>
-  <li class="border border-[var(--tertiary)] rounded p-2">ANSYS</li>
-</ul>
+  <h3 class="text-4xl font-semibold text-[var(--headline)] text-left mt-12 mb-1">Design Skills</h3>
 
+  <p class="text-[var(--paragraph)] text-left mb-6">
+    Hover to see relevant projects and experiences. 
+  </p>
 
-  <h4 class="text-xl font-semibold mt-8 mb-4 text-[var(--headline)]">Prototyping and Fabrication</h4>
-  <ul class="grid grid-cols-3 gap-4">
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">3D Modeling & Drafting</li>
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">Stress Analysis</li>
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">Stress Simulations (FEA)</li>
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">GD&T</li>
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">3D Printing</li>
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">CNC Milling</li>
-    <li class="border border-[var(--headline)] rounded p-2 text-left text-sm text-[var(--tertiary)]">Material Selection</li>
-  </ul>
-</section>
+  <!-- CAD Section -->
+  <h4 class="text-xl font-semibold mb-2 text-[var(--headline)]">CAD</h4>
+  <div class="flex justify-start">
+    <ul class="grid grid-cols-4 gap-px text-left text-sm text-[var(--headline)] font-bold">
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">SolidWorks</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">AutoCAD</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Python</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">MATLAB</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">ANSYS</li>
+    </ul>
+  </div>
 
-
-<!-- Projects Section -->
-<section class="mb-12 bg-[var(--secondary)] p-8 max-w-6xl mx-auto rounded-lg">
-  <h3 class="text-3xl font-bold text-[var(--headline)] text-center mb-8">Projects</h3>
-
-  <div class="grid grid-cols-2 gap-6">
-    <div class="bg-white rounded shadow h-48"></div>
-    <div class="bg-white rounded shadow h-48"></div>
-    <div class="bg-white rounded shadow h-48"></div>
-    <div class="bg-white rounded shadow h-48"></div>
+  <!-- Prototyping and Fabrication Section -->
+  <h4 class="text-xl font-semibold mt-4 mb-2 text-[var(--headline)]">Prototyping and Fabrication</h4>
+  <div class="flex justify-start">
+    <ul class="grid grid-cols-4 gap-px text-left text-sm text-[var(--headline)] font-bold">
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Stress Analysis</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">FEA</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Drafting</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">GD&T</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">3D Printing</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">CNC Milling</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Material Selection</li>
+    </ul>
   </div>
 </section>
 
+
+
+<!-- Projects-->
+<section id="projects" class="mb-12 bg-[var(--backgroundHue)]">
+  <!-- Content container centered and max width -->
+  <div class="p-8 max-w-6xl mx-auto rounded-lg">
+    <!-- Section Heading -->
+    <h3 class="text-5xl font-bold text-[var(--headline)] text-center mt-12 mb-6">Projects</h3>
+
+    <!-- Centered Projects Text -->
+    <p class="text-[var(--paragraph)] text-center mb-12">
+      Coming soon..
+    </p>
+
+    <!-- Project Cards Grid -->
+    <div class="flex flex-wrap justify-center gap-8">
+      <a href="https://example.com/project1" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <img src="icon1_sodoku.png" alt="Icon 1" class="w-12 h-12 mr-3" />
+          <h4 class="text-xl font-semibold text-[var(--headline)] m-0">Using MATLAB to code a Sodoku Solver</h4>
+        </div>
+        <p class="text-[var(--paragraph)] flex-grow">Description for project one goes here.</p>
+      </a>
+
+      <a href="https://example.com/project2" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <img src="icon3_website.svg" alt="Icon 2" class="w-24 h-24 mr-3" />
+          <h4 class="text-xl font-semibold text-[var(--headline)] m-0">How I created a github pages website using Chat GPT and HTML.</h4>
+        </div>
+        <p class="text-[var(--paragraph)] flex-grow">Description for project two goes here.</p>
+      </a>
+
+      <a href="https://example.com/project3" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <img src="icon3.svg" alt="Icon 3" class="w-8 h-8 mr-3" />
+          <h4 class="text-3xl font-bold text-[var(--headline)] m-0">Project Three</h4>
+        </div>
+        <p class="text-[var(--paragraph)] flex-grow">Description for project three goes here.</p>
+      </a>
+
+      <a href="https://example.com/project4" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+        <div class="flex items-center mb-4">
+          <img src="icon4.svg" alt="Icon 4" class="w-8 h-8 mr-3" />
+          <h4 class="text-3xl font-bold text-[var(--headline)] m-0">Project Four</h4>
+        </div>
+        <p class="text-[var(--paragraph)] flex-grow">Description for project four goes here.</p>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scroll Animation Script -->
+<script>
+  const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate in
+        entry.target.classList.remove('opacity-0', 'scale-95');
+        entry.target.classList.add('opacity-100', 'scale-100');
+      } else {
+        // Animate out only if out by 100px or more
+        entry.target.classList.remove('opacity-100', 'scale-100');
+        entry.target.classList.add('opacity-0', 'scale-95');
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+    rootMargin: '-100px 0px -100px 0px' // top and bottom margins negative 100px
+  }
+);
+
+document.querySelectorAll('.project-card').forEach(card => {
+  observer.observe(card);
+  });
+
+</script>
 
 <!-- Two-column layout -->
 <div class="grid grid-cols-2 gap-8 mt-10 max-w-6xl mx-auto">
@@ -110,7 +202,7 @@
     <section class="mb-12">
       <h3 class="text-2xl font-semibold mb-4 text-[var(--headline)]">Tristan's work<br>experiences. </h3>
       <p class="mb-4">
-        Hands on experience contributing to clean energy, education, and construction projects—applying skills in mechanical design, and fabrication.  .      </p>
+        Hands on experience working in clean energy, education, and construction projects—applying skills in mechanical design, and fabrication.  .      </p>
     </section>
   </div>
 
