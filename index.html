@@ -19,10 +19,23 @@
       --paragraph: #5f6c7b;
       --button: #3da9fc;
       --button-text: #fffffe;
-      --illustration-stroke: #094067;
+      --stroke: #094067;
       --main: #fffffe;
       --highlight: #3da9fc;
       --secondary: #90b4ce;
+      --tertiary: #ef4565;
+    }
+    [data-theme="dark"] {
+      --background: #0f0e17;
+      --backgroundHue: #0f0e17;
+      --headline: #fffffe;
+      --paragraph: #a7a9be;
+      --button: #ff8906;
+      --button-text: #fffffe;
+      --stroke: black;
+      --main: #fffffe;
+      --highlight: #ff8906;
+      --secondary: #f25f4c;
       --tertiary: #ef4565;
     }
 
@@ -42,23 +55,30 @@
   <!-- Name -->
   <div>
     <h2 class="text-3xl font-semibold" style="color: var(--headline);">Tristan Cortes</h2>
-    
   </div>
   
-<div class="flex flex-wrap items-center justify-end gap-4 text-sm text-[var(--headline)] px-4 py-2">
-  <a href="tel:+13609298659" class="hover:underline">📞 (360) 929-8659</a>
-  <a href="mailto:tristancortes@gmail.com" class="hover:underline">✉️ tristancortes@gmail.com</a>
-  <a href="https://www.linkedin.com/in/tc2571/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-    🌐 LinkedIn
-  </a>
-</div>
+  <div class="flex flex-col items-end space-y-2">
+    <div class="flex flex-wrap items-center justify-end gap-4 text-sm text-[var(--headline)]">
+      <a href="tel:+13609298659" class="hover:underline">📞 (360) 929-8659</a>
+      <a href="mailto:tristancortes@gmail.com" class="hover:underline">✉️ tristancortes@gmail.com</a>
+      <a href="https://www.linkedin.com/in/tc2571/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+        🌐 LinkedIn
+      </a>
+    </div>
 
-  <!-- Nav links aligned top right -->
-  <nav class="flex space-x-6 mt-1">
-    <a href="index.html" class="hover:underline text-lg">About Me</a>
-    <a href="experience.html" class="hover:underline text-lg">Experience</a>
-    <a href="projects.html" class="hover:underline text-lg">Projects</a>
-  </nav>
+    <!-- Nav + Toggle -->
+    <div class="flex items-center space-x-6">
+      <nav class="flex space-x-6">
+        <a href="index.html" class="hover:underline text-lg">About Me</a>
+        <a href="experience.html" class="hover:underline text-lg">Experience</a>
+        <a href="projects.html" class="hover:underline text-lg">Projects</a>
+      </nav>
+      <button onclick="toggleTheme()" aria-label="Toggle dark mode" id="themeToggle"
+        class="text-3xl focus:outline-none transition-transform hover:scale-110">
+        🌙
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- Two-column layout begins after title/nav -->
@@ -71,7 +91,8 @@
       <div class="flex items-start gap-4">
   
         <!-- Paragraph Text -->
-        <p class="text-[var(--paragraph)]">
+        <p class="text leading-loose text-[var(--paragraph)]">
+
           I'm Tristan, a Mechanical Engineer who wants to build a more positive and sustainable future. I specialize in Mechanical Design, and I have a passion for 3D modeling, Stress Analyis, and Protoyping & Fabrication. I bring precision and determination to every challenge, and I believe in working collaboratively to build the most efficient solutions. I welcome connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities.
         </p>
       </div>
@@ -81,7 +102,7 @@
   <!-- Right Column (empty for now) -->
   <div>
     <div class="flex justify-center items-center">
-<img src="profile.jpg" alt="Tristan Cortes" class="w-96 h-96 object-top rounded" />
+<img src="profile_2.jpg" alt="Tristan Cortes" class="w-96 h-96 object-top rounded" />
     </div>
 
   </div>
@@ -175,51 +196,63 @@
   </div>
 </section>
 
+
 <!-- Scroll Animation Script -->
 <script>
   const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Animate in
-        entry.target.classList.remove('opacity-0', 'scale-95');
-        entry.target.classList.add('opacity-100', 'scale-100');
-      } else {
-        // Animate out only if out by 100px or more
-        entry.target.classList.remove('opacity-100', 'scale-100');
-        entry.target.classList.add('opacity-0', 'scale-95');
-      }
-    });
-  },
-  {
-    threshold: 0.3,
-    rootMargin: '-100px 0px -100px 0px' // top and bottom margins negative 100px
-  }
-);
-
-document.querySelectorAll('.project-card').forEach(card => {
-  observer.observe(card);
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'scale-95');
+          entry.target.classList.add('opacity-100', 'scale-100');
+        } else {
+          entry.target.classList.remove('opacity-100', 'scale-100');
+          entry.target.classList.add('opacity-0', 'scale-95');
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+      rootMargin: '-100px 0px -100px 0px'
+    }
+  );
+  document.querySelectorAll('.project-card').forEach(card => {
+    observer.observe(card);
   });
-
 </script>
 
-<!-- Two-column layout -->
-<div class="grid grid-cols-2 gap-8 mt-10 max-w-6xl mx-auto">
-  <!-- Left Column -->
-  <div>
-    <!-- About Section -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold mb-4 text-[var(--headline)]">Tristan's work<br>experiences. </h3>
-      <p class="mb-4">
-        Hands on experience working in clean energy, education, and construction projects—applying skills in mechanical design, and fabrication.  .      </p>
-    </section>
-  </div>
+<!-- Theme Toggle Script -->
+<script>
+  function toggleTheme() {
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const isDark = root.getAttribute('data-theme') === 'dark';
 
- 
+    if (isDark) {
+      root.setAttribute('data-theme', 'light');
+      toggle.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      toggle.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  window.onload = () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const toggle = document.getElementById('themeToggle');
+    if (toggle) {
+      toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    }
+  };
+</script>
 
 <!-- Footer -->
 <footer class="text-center text-sm text-[var(--paragraph)] mt-10">
   © <script>document.write(new Date().getFullYear())</script> Tristan Cortes. All rights reserved.
 </footer>
+
 </body>
 </html>
