@@ -27,7 +27,7 @@
     }
     [data-theme="dark"] {
       --background: #0f0e17;
-      --backgroundHue: #0f0e17;
+      --backgroundHue: #a7a9be;
       --headline: #fffffe;
       --paragraph: #a7a9be;
       --button: #ff8906;
@@ -50,44 +50,33 @@
 </head>
 <body class="bg-[var(--background)]">
 
-<!-- Top Section with Nav -->
-<div class="relative bg-[--background] text-[var(--headline)] px-8 py-6 flex justify-between items-start">
-  <!-- Name -->
-  <div>
-    <h2 class="text-3xl font-semibold" style="color: var(--headline);">Tristan Cortes</h2>
-  </div>
+<!-- Top Section with everything on one line -->
+<div class="bg-[--background] text-[var(--headline)] px-8 py-6 flex items-center justify-between flex-wrap gap-6">
   
-  <div class="flex flex-col items-end space-y-2">
-    <div class="flex flex-wrap items-center justify-end gap-4 text-sm text-[var(--headline)]">
-      <a href="tel:+13609298659" class="hover:underline">📞 (360) 929-8659</a>
-      <a href="mailto:tristancortes@gmail.com" class="hover:underline">✉️ tristancortes@gmail.com</a>
-      <a href="https://www.linkedin.com/in/tc2571/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-        🌐 LinkedIn
-      </a>
-    </div>
-
-    <!-- Nav + Toggle -->
-    <div class="flex items-center space-x-6">
-      <nav class="flex space-x-6">
-        <a href="index.html" class="hover:underline text-lg">About Me</a>
-        <a href="experience.html" class="hover:underline text-lg">Experience</a>
-        <a href="projects.html" class="hover:underline text-lg">Projects</a>
-      </nav>
-      <button onclick="toggleTheme()" aria-label="Toggle dark mode" id="themeToggle"
-        class="text-3xl focus:outline-none transition-transform hover:scale-110">
-        🌙
-      </button>
-    </div>
+  <!-- Left: Name -->
+  <div class="text-2xl font-semibold" style="color: var(--headline);">
+    Tristan Cortes
   </div>
+
+
+  <!-- Right: Nav and Toggle -->
+  <div class="flex items-center space-x-6">
+    <nav class="flex space-x-6 text-lg">
+      <a href="index.html" class="hover:underline">About Me</a>
+      <a href="experience.html" class="hover:underline">Experience</a>
+      <a href="projects.html" class="hover:underline">Projects</a>
+    </nav>
+  </div>
+
 </div>
 
 <!-- Two-column layout begins after title/nav -->
-<div class="grid grid-cols-2 gap-8 mt-10 max-w-6xl mx-auto">
+<div class="grid grid-cols-2 gap-8 mt-16 max-w-6xl mx-auto">
   <!-- Left Column -->
   <div>
     <!-- About Section -->
     <section class="mb-12">
-      <h1 class="text-6xl font-bold mb-6 text-[var(--headline)]">Welcome to<br>my page.</h1>
+      <h1 class="text-6xl font-semibold mb-6 text-[var(--headline)]">Welcome to<br>my page.</h1>
       <div class="flex items-start gap-4">
   
         <!-- Paragraph Text -->
@@ -101,7 +90,7 @@
 
   <!-- Right Column (empty for now) -->
   <div>
-    <div class="flex justify-center items-center">
+    <div class="mt-12 flex justify-center items-center">
 <img src="profile_2.jpg" alt="Tristan Cortes" class="w-96 h-96 object-top rounded" />
     </div>
 
@@ -110,8 +99,8 @@
 
 
 <!-- Skills Section spanning both columns -->
-<section class="max-w-6xl mx-auto mb-12">
-  <h3 class="text-4xl font-semibold text-[var(--headline)] text-left mt-12 mb-1">Design Skills</h3>
+<section class="max-w-6xl mx-auto mb-24">
+  <h3 class="text-4xl font-semibold text-[var(--headline)] text-left mt-4 mb-1">Design Skills</h3>
 
   <p class="text-[var(--paragraph)] text-left mb-6">
     Hover to see relevant projects and experiences. 
@@ -223,36 +212,53 @@
 
 <!-- Theme Toggle Script -->
 <script>
-  function toggleTheme() {
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const isDark = root.getAttribute('data-theme') === 'dark';
-
-    if (isDark) {
-      root.setAttribute('data-theme', 'light');
-      toggle.textContent = '🌙';
-      localStorage.setItem('theme', 'light');
+  // Update theme and label text on toggle
+  function toggleThemeAndLabel() {
+    const checkbox = document.getElementById('themeToggle');
+    const label = document.getElementById('themeLabel');
+    if (checkbox.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      label.textContent = 'Dark Theme';
     } else {
-      root.setAttribute('data-theme', 'dark');
-      toggle.textContent = '☀️';
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.setAttribute('data-theme', 'light');
+      label.textContent = 'Light Theme';
     }
   }
 
-  window.onload = () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    const toggle = document.getElementById('themeToggle');
-    if (toggle) {
-      toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  // Initialize label on page load based on current theme or default light
+  window.addEventListener('DOMContentLoaded', () => {
+    const checkbox = document.getElementById('themeToggle');
+    const label = document.getElementById('themeLabel');
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+      checkbox.checked = true;
+      label.textContent = 'Dark Theme';
+    } else {
+      checkbox.checked = false;
+      label.textContent = 'Light Theme';
     }
-  };
+  });
 </script>
 
-<!-- Footer -->
-<footer class="text-center text-sm text-[var(--paragraph)] mt-10">
-  © <script>document.write(new Date().getFullYear())</script> Tristan Cortes. All rights reserved.
+<footer class="flex items-center justify-between text-sm text-[var(--paragraph)] mt-10 px-4 py-4 max-w-6xl mx-auto w-full">
+  <div class="flex items-center space-x-6">
+    <a href="tel:+13609298659" class="hover:underline">📞 (360) 929-8659</a>
+    <a href="mailto:tristancortes@gmail.com" class="hover:underline">✉️ tristancortes@gmail.com</a>
+    <a href="https://www.linkedin.com/in/tristancortes/" target="_blank" rel="noopener noreferrer" class="hover:underline">🌐 LinkedIn</a>
+    <span>© <script>document.write(new Date().getFullYear())</script> Tristan Cortes. All rights reserved.</span>
+  </div>
+
+  <!-- Sliding Theme Toggle with dynamic text -->
+  <div class="flex items-center ml-auto space-x-3">
+    <label for="themeToggle" class="relative inline-flex items-center cursor-pointer">
+      <input type="checkbox" id="themeToggle" class="sr-only peer" onchange="toggleThemeAndLabel()">
+      <div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-blue-500 transition-colors"></div>
+      <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-md transform peer-checked:translate-x-full transition-transform"></div>
+    </label>
+    <span id="themeLabel" class="select-none text-[var(--paragraph)] font-medium">Light Theme</span>
+  </div>
 </footer>
+
+
 
 </body>
 </html>
