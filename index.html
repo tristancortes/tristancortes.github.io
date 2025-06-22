@@ -11,60 +11,139 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --background: #fffffe;
-      --backgroundHue: #d8eefe;
-      --headline: #094067;
-      --paragraph: #5f6c7b;
-      --button: #3da9fc;
-      --button-text: #fffffe;
-      --stroke: #094067;
-      --main: #fffffe;
-      --highlight: #3da9fc;
-      --secondary: #90b4ce;
-      --tertiary: #ef4565;
-    }
-    [data-theme="dark"] {
-      --background: #0f0e17;
-      --backgroundHue: #a7a9be;
-      --headline: #fffffe;
-      --paragraph: #a7a9be;
-      --button: #ff8906;
-      --button-text: #fffffe;
-      --stroke: black;
-      --main: #fffffe;
-      --highlight: #ff8906;
-      --secondary: #f25f4c;
-      --tertiary: #ef4565;
-    }
+<style>
+  :root {
+    --background: #fffffe;
+    --backgroundHue: #d8eefe;
+    --headline: #094067;
+    --paragraph: #5f6c7b;
+    --button: #3da9fc;
+    --button-text: #fffffe;
+    --stroke: #094067;
+    --main: #fffffe;
+    --highlight: #3da9fc;
+    --secondary: #90b4ce;
+    --tertiary: #ef4565;
+  }
+  [data-theme="dark"] {
+    --background: #0f0e17;
+    --backgroundHue: #a7a9be;
+    --headline: #fffffe;
+    --paragraph: #a7a9be;
+    --button: #ff8906;
+    --button-text: #fffffe;
+    --stroke: black;
+    --main: #fffffe;
+    --highlight: #ff8906;
+    --secondary: #f25f4c;
+    --tertiary: #ef4565;
+  }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-    }
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
-  </style>
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .scrollable-projects {
+  border: 2px solid transparent; /* transparent border */
+  border-radius: 0.75rem; /* match your rounded-lg */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); /* very subtle shadow for depth */
+  /* Optional: add backdrop blur if you want a frosted effect */
+  /* backdrop-filter: blur(4px); */
+  }
+
+  
+  .backdrop-blur {
+    backdrop-filter: blur(10px);
+  }
+
+  nav a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding-bottom: 2px; /* some space for underline */
+    transition: color 0.3s ease;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--highlight);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+  }
+
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+
+  /* Apply same underline effect to the name link */
+  .text-2xl.font-semibold > a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+  }
+
+  .text-2xl.font-semibold > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--highlight);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+  }
+
+  .text-2xl.font-semibold > a:hover::after,
+  .text-2xl.font-semibold > a:focus::after {
+    width: 100%;
+  }
+
+  #topNav:hover {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .profile-border {
+  border: 2px solid var(--headline);
+  border-radius: 0.5rem; /* matches your rounded corners */
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  background: var(--headline); /* keep background consistent */
+}
+
+</style>
+
 </head>
-<body class="bg-[var(--background)]">
+<body id="top" class="bg-[var(--background)]">
 
 <!-- Top Section with everything on one line -->
-<div class="bg-[--background] text-[var(--headline)] py-6">
+<div id="topNav" class="sticky top-0 z-50 w-full bg-[var(--background)] bg-opacity-70 hover:bg-opacity-90 backdrop-blur transition-opacity duration-300 py-6 text-[var(--headline)] opacity-100">
   <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
     
     <!-- Left: Name -->
     <div class="text-2xl font-semibold" style="color: var(--headline);">
-      Tristan Cortes
+<a href="index.html" class="hover:underline custom-underline">Tristan Cortes</a>
     </div>
 
     <!-- Right: Nav and Toggle -->
     <div class="flex items-center space-x-6">
       <nav class="flex space-x-6 text-lg">
-        <a href="index.html" class="hover:underline">About Me</a>
-        <a href="experience.html" class="hover:underline">Experience</a>
-        <a href="projects.html" class="hover:underline">Projects</a>
+        <a href="#top">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#footer">Contact</a>
       </nav>
     </div>
 
@@ -83,9 +162,7 @@
   
         <!-- Paragraph Text -->
         <p class="text leading-loose text-[var(--paragraph)]">
-
-          I'm Tristan, a Mechanical Engineer who wants to build a more positive and sustainable future. I specialize in Mechanical Design, and I have a passion for 3D modeling, Stress Analyis, and Protoyping & Fabrication. I bring precision and determination to every challenge, and I believe in working collaboratively to build the most efficient solutions. I welcome connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities.
-        </p>
+          I'm Tristan, a Mechanical Engineer who wants to build a more positive and sustainable future. I specialize in Mechanical Design, and I have a passion for 3D modeling, Stress Analysis, and Prototyping & Fabrication. I bring precision and determination to every challenge, and I believe in working collaboratively to build the most efficient solutions. I welcome connections with professionals, mentors, and recruiters interested in collaborating or discussing new opportunities.
       </div>
     </section>
   </div>
@@ -93,7 +170,7 @@
   <!-- Right Column (empty for now) -->
   <div>
     <div class="mt-12 flex justify-center items-center">
-<img src="profile_2.jpg" alt="Tristan Cortes" class="w-96 h-96 object-top rounded" />
+<img src="profile_2.jpg" alt="Tristan Cortes" class="w-96 h-96 object-top rounded profile-border" />
     </div>
 
   </div>
@@ -109,28 +186,33 @@
   </p>
 
   <!-- CAD Section -->
-  <h4 class="text-xl font-semibold mb-2 text-[var(--headline)]">CAD</h4>
+  <h4 class="text-xl font-semibold mb-2 text-[var(--headline)]">Technical</h4>
   <div class="flex justify-start">
     <ul class="grid grid-cols-4 gap-1 text-left text-sm text-[var(--headline)] font-bold">
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">SolidWorks</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">AutoCAD</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Python</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">MATLAB</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">ANSYS</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Stress Analysis</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Material Selection</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">FEA</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">GD&T</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Drafting</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Fabrication</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Problem Solving</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Communication</li>
     </ul>
   </div>
 
   <!-- Prototyping and Fabrication Section -->
-  <h4 class="text-xl font-semibold mt-4 mb-2 text-[var(--headline)]">Prototyping and Fabrication</h4>
+  <h4 class="text-xl font-semibold mt-4 mb-2 text-[var(--headline)]">Tools</h4>
   <div class="flex justify-start">
     <ul class="grid grid-cols-4 gap-1 text-left text-sm text-[var(--headline)] font-bold">
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Stress Analysis</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">FEA</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Drafting</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">GD&T</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">3D Printing</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">CNC Milling</li>
-      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Material Selection</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">SolidWorks</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">AutoCAD</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">ANSYS</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">MS Office</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">MATLAB</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">Python</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">G-Code</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">C/C++</li>
+      <li class="border-2 border-[var(--headline)] rounded p-2 w-40">HTML5</li>
     </ul>
   </div>
 </section>
@@ -142,54 +224,66 @@
   <!-- Content container centered and max width -->
   <div class="p-8 max-w-6xl mx-auto rounded-lg">
     <!-- Section Heading -->
-    <h3 class="text-5xl font-bold text-[var(--headline)] text-center mt-12 mb-6">Projects</h3>
+    <h3 class="text-5xl font-bold text-[var(--headline)] text-center mt-8 mb-8">Projects</h3>
 
-    <!-- Centered Projects Text -->
-    <p class="text-[var(--paragraph)] text-center mb-12">
-      Coming soon..
-    </p>
 
     <!-- Project Cards Grid -->
+   <div class="scrollable-projects max-h-[80vh] overflow-y-auto px-4 py-6 border rounded-lg">
     <div class="flex flex-wrap justify-center gap-8">
-      <a href="https://example.com/project1" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
         <div class="flex items-center mb-4">
-          <img src="icon1_sodoku.png" alt="Icon 1" class="w-12 h-12 mr-3" />
-          <h4 class="text-xl font-semibold text-[var(--headline)] m-0">Using MATLAB to code a Sodoku Solver</h4>
+          <!--<img src="icon1_sodoku.png" alt="Icon 1" class="w-12 h-12 mr-3" />-->
+          <h4 class="text-xl font-semibold text-[var(--headline)] m-0"> Aircaft Pylon Structural Optimization</h4>
         </div>
-        <p class="text-[var(--paragraph)] flex-grow">Description for project one goes here.</p>
+        <p class="text-[var(--paragraph)] flex-grow">
+            Developed custom solution for aircraft engine pylon design considering multiple engine configurations, <b>material choices</b> (aluminum, titanium, composites), and budget constraints. Performed <b>stress analysis</b> and trade studies with small margins for error to optimize weight while meeting strength and cost targets and produced a <b>technical report</b> and presentation.<br>
+            <b>Skills: </b>Stress Analysis, Material Selection, MATLAB, MS Office.
+        </p>
       </a>
 
-      <a href="https://example.com/project2" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
         <div class="flex items-center mb-4">
-          <img src="icon3_website.svg" alt="Icon 2" class="w-24 h-24 mr-3" />
-          <h4 class="text-xl font-semibold text-[var(--headline)] m-0">How I created a github pages website using Chat GPT and HTML.</h4>
+         <!--<img src= "icon1_sodoku.png" alt="Icon 1" class="w-12 h-12 mr-3" />-->
+          <h4 class="text-xl font-semibold text-[var(--headline)] m-0">Matrix-Based Sudoku Solver in MATLAB</h4>
         </div>
-        <p class="text-[var(--paragraph)] flex-grow">Description for project two goes here.</p>
+        <p class="text-[var(--paragraph)] flex-grow">
+            Created Sudoku solver in MATLAB that leverages  <b>data processing</b> techniques and logical inference to analyze and solve puzzles of varying difficulty. Implemented a structured approach to parse inputs, apply rule-based elimination, and visualize solution progress.<br>
+            <b>Skills: </b>Problem Solving, Data Processing, FEA Linear Algebra, MATLAB
+        </p>
       </a>
 
-      <a href="https://example.com/project3" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
         <div class="flex items-center mb-4">
-          <img src="icon3.svg" alt="Icon 3" class="w-8 h-8 mr-3" />
-          <h4 class="text-3xl font-bold text-[var(--headline)] m-0">Project Three</h4>
+         <!-- <img src="icon3.svg" alt="Icon 3" class="w-8 h-8 mr-3" />-->
+          <h4 class="text-xl font-bold text-[var(--headline)] m-0">3D Printed Vase G-Code Slicer</h4>
         </div>
-        <p class="text-[var(--paragraph)] flex-grow">Description for project three goes here.</p>
+        <p class="text-[var(--paragraph)] flex-grow"> 
+            Developed a Python-based slicer for additive manufacturing, converting a 3D model of single-wall vase into G-Code for layer-by-layer tool path generation, extrusion control, and print speed control to enable fabrication with Ender-3 Pro 3D printer.<br> 
+            <b>Skills: </b>Fabrication, CNC, Python, 3D printing, G-code
+        </p>
       </a>
 
-      <a href="https://example.com/project4" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
+      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
         <div class="flex items-center mb-4">
-          <img src="icon4.svg" alt="Icon 4" class="w-8 h-8 mr-3" />
-          <h4 class="text-3xl font-bold text-[var(--headline)] m-0">Project Four</h4>
+          <!--<img src="icon4.svg" alt="Icon 4" class="w-8 h-8 mr-3" />-->
+          <h4 class="text-xl font-bold text-[var(--headline)] m-0">Automatic Street Light System</h4>
         </div>
-        <p class="text-[var(--paragraph)] flex-grow">Description for project four goes here.</p>
+        <p class="text-[var(--paragraph)] flex-grow">
+           Built an automatic street light system hardware prototype employing an Arduino-based embedded systems  platform, integrating IR sensors and LED arrays to activate lighting based on ambient conditions and motion detection.<br>
+            <b>Skills: </b> Embedded Systems, Hardware Protoyping, C/C++, Arduino
+      </p>
+     
       </a>
+    </div>
     </div>
 
   </div>
 </section>
 
 
-<!-- Scroll Animation Script -->
 <script>
+  const scrollContainer = document.querySelector('.scrollable-projects');
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -203,10 +297,12 @@
       });
     },
     {
+      root: scrollContainer, // 👈 key addition
       threshold: 0.3,
       rootMargin: '-100px 0px -100px 0px'
     }
   );
+
   document.querySelectorAll('.project-card').forEach(card => {
     observer.observe(card);
   });
@@ -241,7 +337,24 @@
   });
 </script>
 
-<footer class="flex items-center justify-between text-sm text-[var(--paragraph)] mt-10 px-4 py-4 max-w-6xl mx-auto w-full">
+<script>
+ const topNav = document.getElementById('topNav');
+
+function toggleNavVisibility() {
+  if (window.scrollY === 0) {
+    topNav.style.opacity = '1';            // fully visible at top
+    topNav.style.pointerEvents = 'auto';  // interactive
+  } else {
+    topNav.style.opacity = '0.0';          // semi-transparent on scroll
+    topNav.style.pointerEvents = 'auto';   // still interactive
+  }
+}
+
+window.addEventListener('scroll', toggleNavVisibility);
+window.addEventListener('load', toggleNavVisibility);
+</script>
+
+<footer id="footer"class="flex items-center justify-between text-sm text-[var(--paragraph)] mt-10 px-4 py-4 max-w-6xl mx-auto w-full">
   <div class="flex items-center space-x-6">
     <a href="tel:+13609298659" class="hover:underline">📞 (360) 929-8659</a>
     <a href="mailto:tristancortes@gmail.com" class="hover:underline">✉️ tristancortes@gmail.com</a>
