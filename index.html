@@ -230,69 +230,65 @@
 </section>
 
 
-<!-- Projects-->
+<!-- Projects Section (New Carousel Style) -->
 <section id="Projects" class="mb-12 bg-[var(--backgroundHue)]">
-  <!-- Content container centered and max width -->
   <div class="p-8 max-w-6xl mx-auto rounded-lg">
-    <!-- Section Heading -->
-    <h3 class="text-5xl font-bold text-[var(--headline)] text-center mt-8 mb-8">Projects</h3>
+    <h3 class="text-5xl font-bold text-[var(--headline)] text-left mt-8 mb-8">Projects</h3>
 
-    <!-- Project Cards Grid -->
-   <div class="scrollable-projects max-h-[80vh] overflow-y-auto px-4 py-6 border rounded-lg">
-    <div class="flex flex-wrap justify-center gap-8">
-      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
-        <div class="flex items-center mb-4">
-          <!--<img src="icon1_sodoku.png" alt="Icon 1" class="w-12 h-12 mr-3" />-->
-          <h4 class="text-xl font-semibold text-[var(--headline)] m-0"> Aircaft Pylon Structural Optimization</h4>
-        </div>
-        <p class="text-[var(--paragraph)] flex-grow">
-            Developed custom solution for aircraft engine pylon design considering multiple engine configurations, <b>material choices</b> (aluminum, titanium, composites), and budget constraints. Performed <b>stress analysis</b> and trade studies with small margins for error to optimize weight while meeting strength and cost targets and produced a <b>technical report</b> and presentation.<br>
-            <b>Skills: </b>Stress Analysis, Material Selection, MATLAB, MS Office.
-        </p>
-      </a>
+    <div class="relative">
+      <!-- Left Button -->
+      <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-[var(--button)] text-white rounded-full shadow hover:bg-[var(--highlight)]">
+        &#8592;
+      </button>
 
-      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
-        <div class="flex items-center mb-4">
-         <!--<img src= "icon1_sodoku.png" alt="Icon 1" class="w-12 h-12 mr-3" />-->
-          <h4 class="text-xl font-semibold text-[var(--headline)] m-0">Matrix-Based Sudoku Solver in MATLAB</h4>
-        </div>
-        <p class="text-[var(--paragraph)] flex-grow">
-            Created Sudoku solver in MATLAB that leverages  <b>data processing</b> techniques and logical inference to analyze and solve puzzles of varying difficulty. Implemented a structured approach to parse inputs, apply rule-based elimination, and visualize solution progress.<br>
-            <b>Skills: </b>Problem Solving, Data Processing, FEA Linear Algebra, MATLAB
-        </p>
-      </a>
+      <!-- Right Button -->
+      <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-[var(--button)] text-white rounded-full shadow hover:bg-[var(--highlight)]">
+        &#8594;
+      </button>
 
-      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
-        <div class="flex items-center mb-4">
-         <!-- <img src="icon3.svg" alt="Icon 3" class="w-8 h-8 mr-3" />-->
-          <h4 class="text-xl font-bold text-[var(--headline)] m-0">3D Printed Vase G-Code Slicer</h4>
+      <!-- Carousel Container -->
+      <div id="carousel" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-12 py-4">
+        <!-- Project Tile 1 -->
+        <div class="project-card snap-center flex-shrink-0 rounded-lg shadow-lg bg-white overflow-hidden opacity-0 scale-95 transition-all duration-700">
+          <img src="slide1.jpg" alt="Project 1" class="block max-w-full max-h-[30rem] object-contain" loading="lazy" />
         </div>
-        <p class="text-[var(--paragraph)] flex-grow"> 
-            Developed a Python-based slicer for additive manufacturing, converting a 3D model of single-wall vase into G-Code for layer-by-layer tool path generation, extrusion control, and print speed control to enable fabrication with Ender-3 Pro 3D printer.<br> 
-            <b>Skills: </b>Fabrication, CNC, Python, 3D printing, G-code
-        </p>
-      </a>
 
-      <a href="#projects" class="project-card block bg-white rounded shadow h-[20rem] w-[30rem] opacity-0 scale-95 transition-all duration-700 ease-out hover:bg-[var(--highlight)] hover:text-white cursor-pointer p-6 flex flex-col">
-        <div class="flex items-center mb-4">
-          <!--<img src="icon4.svg" alt="Icon 4" class="w-8 h-8 mr-3" />-->
-          <h4 class="text-xl font-bold text-[var(--headline)] m-0">Automatic Street Light System</h4>
+        <!-- Project Tile 2 -->
+        <div class="project-card snap-center flex-shrink-0 rounded-lg shadow-lg bg-white overflow-hidden opacity-0 scale-95 transition-all duration-700">
+          <img src="slide2.jpg" alt="Project 2" class="block max-w-full max-h-[30rem] object-contain" loading="lazy" />
         </div>
-        <p class="text-[var(--paragraph)] flex-grow">
-           Built an automatic street light system hardware prototype employing an Arduino-based embedded systems  platform, integrating IR sensors and LED arrays to activate lighting based on ambient conditions and motion detection.<br>
-            <b>Skills: </b> Embedded Systems, Hardware Protoyping, C/C++, Arduino
-      </p>
-     
-      </a>
+
+        <!-- Add more project slides here -->
+      </div>
     </div>
-    </div>
-
   </div>
 </section>
 
 
+
+
 <script>
-  const scrollContainer = document.querySelector('.scrollable-projects');
+  const carousel = document.getElementById('carousel');
+  const scrollLeftBtn = document.getElementById('scrollLeft');
+  const scrollRightBtn = document.getElementById('scrollRight');
+
+  // Calculate the scroll amount based on the first project card's width + gap (24px)
+  function getScrollAmount() {
+    const card = carousel.querySelector('.project-card');
+    const style = getComputedStyle(carousel);
+    const gap = parseInt(style.gap) || 24; // fallback to 24 if gap not found
+    return card.offsetWidth + gap;
+  }
+
+  scrollLeftBtn.addEventListener('click', () => {
+    const scrollAmount = getScrollAmount();
+    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  scrollRightBtn.addEventListener('click', () => {
+    const scrollAmount = getScrollAmount();
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -307,9 +303,8 @@
       });
     },
     {
-      root: scrollContainer, // 👈 key addition
+      root: carousel,
       threshold: 0.3,
-      rootMargin: '-100px 0px -100px 0px'
     }
   );
 
@@ -317,6 +312,7 @@
     observer.observe(card);
   });
 </script>
+
 
 <!-- Theme Toggle Script -->
 <script>
